@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "highcharts": "^11.2.0",
+    "highcharts-react-official": "^3.2.1"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.23.3"
+  }
+}
