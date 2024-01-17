@@ -2,7 +2,7 @@ header {
     display: flex;
     align-items: center;
     padding: 1rem;
-    background-color: #052849; /* Adjust the background color as needed */
+    background-color: #052849;
   }
   
   .logo {
@@ -10,7 +10,7 @@ header {
   }
   
   img {
-    height: 40px; /* Adjust the height as needed */
+    height: 40px;
   }
   
   h1 {

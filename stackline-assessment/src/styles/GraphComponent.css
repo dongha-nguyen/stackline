@@ -1,0 +1,17 @@
+/* GraphComponent.css */
+.chart-container {
+    padding-top: 10px;
+    background-color: white;
+  }
+  
+  .chart-legend {
+    color: black;
+  }
+  
+  .chart-grid {
+    color: black;
+  }
+  
+  .chart-point {
+    background-color: black;
+  }

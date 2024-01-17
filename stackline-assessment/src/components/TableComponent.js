@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import '../styles/TableComponent.css';
 
 const TableComponent = () => {
   const [salesData, setSalesData] = useState(null);
@@ -14,7 +15,6 @@ const TableComponent = () => {
         const fetchedSalesData = salesResponse.data;
 
         if (fetchedSalesData.sales && Array.isArray(fetchedSalesData.sales)) {
-          console.log('Sales Data:', fetchedSalesData.sales); // Log sales data to console
           setSalesData(fetchedSalesData.sales);
         } else {
           console.error('Invalid sales data format:', fetchedSalesData);
@@ -50,19 +50,55 @@ const TableComponent = () => {
         }
       })
     : null;
+  
+    const CaretDown = () => (
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24">
+        <path d="M7 10l5 5 5-5z" />
+      </svg>
+    );
 
   // Render your sales data table
   return (
-    <div>
+    <div className="table-container">
       {sortedSalesData ? (
         <table>
           <thead>
-            <tr>
-              <th onClick={() => handleSort('weekEnding')}>Week Ending</th>
-              <th onClick={() => handleSort('retailSales')}>Retail Sales</th>
-              <th onClick={() => handleSort('wholesaleSales')}>Wholesale Sales</th>
-              <th onClick={() => handleSort('unitsSold')}>Units Sold</th>
-              <th onClick={() => handleSort('retailerMargin')}>Retailer Margin</th>
+          <tr>
+              <th
+                onClick={() => handleSort('weekEnding')}
+                className={sortColumn === 'weekEnding' ? sortOrder : ''}
+              >
+                Week Ending
+                {sortColumn === 'weekEnding' && <CaretDown />}
+              </th>
+              <th
+                onClick={() => handleSort('retailSales')}
+                className={sortColumn === 'retailSales' ? sortOrder : ''}
+              >
+                Retail Sales
+                {sortColumn === 'retailSales' && <CaretDown />}
+              </th>
+              <th
+                onClick={() => handleSort('wholesaleSales')}
+                className={sortColumn === 'wholesaleSales' ? sortOrder : ''}
+              >
+                Wholesale Sales
+                {sortColumn === 'wholesaleSales' && <CaretDown />}
+              </th>
+              <th
+                onClick={() => handleSort('unitsSold')}
+                className={sortColumn === 'unitsSold' ? sortOrder : ''}
+              >
+                Units Sold
+                {sortColumn === 'unitsSold' && <CaretDown />}
+              </th>
+              <th
+                onClick={() => handleSort('retailerMargin')}
+                className={sortColumn === 'retailerMargin' ? sortOrder : ''}
+              >
+                Retailer Margin
+                {sortColumn === 'retailerMargin' && <CaretDown />}
+              </th>
             </tr>
           </thead>
           <tbody>
